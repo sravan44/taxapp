@@ -1,24 +1,40 @@
-# README
+##### Prerequisites
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The setups steps expect following tools installed on the system.
 
-Things you may want to cover:
+- Github
+- Ruby [2.7.1](https://github.com/organization/project-name/blob/master/.ruby-version#L1)
+- Rails [6.0.1](https://github.com/organization/project-name/blob/master/Gemfile#L12)
 
-* Ruby version
+##### 1. Check out the repository
 
-* System dependencies
+```bash
+git clone git@github.com:sravan44/taxapp.git
+```
 
-* Configuration
+##### 2. Create database.yml file
 
-* Database creation
+Change the configurations in database.yml according to the local postgres configurations.
 
-* Database initialization
+```bash
+config/database.yml
+```
 
-* How to run the test suite
+##### 3. Create and setup the database
 
-* Services (job queues, cache servers, search engines, etc.)
+Run the following commands to create and setup the database.
 
-* Deployment instructions
+```ruby
+bundle exec rake db:create
+bundle exec rake db:migrate
+```
 
-* ...
+##### 4. Start the Rails server
+
+You can start the rails server using the command given below.
+
+```ruby
+rails s
+```
+
+And now you can visit the site with the URL http://localhost:3000
