@@ -3,14 +3,24 @@ class EmployeesController < ApplicationController
 
   # GET /employees
   def index
-    @employees = Employee.all
+    @employees = Employee.allbundle
 
-    render json: @employees
+    render json: {
+      data: ActiveModelSerializers::SerializableResource.new(@employees, each_serializer: EmployeeSerializer),
+      message: ['Employee list fetched successfully'],
+      status: 200,
+      type: 'Success'
+    }
   end
 
   # GET /employees/1
   def show
-    render json: @employee
+    render json: {
+      data: ActiveModelSerializers::SerializableResource.new(@employee, each_serializer: EmployeeSerializer),
+      message: ['Employee details fetched successfully'],
+      status: 200,
+      type: 'Success'
+    }
   end
 
   # POST /employees
